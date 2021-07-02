@@ -3,7 +3,9 @@ import cv2
 import numpy as np
 import pandas as pd
 
-arquivos = pd.read_csv("dataset_sem_classes.csv", delimiter=";")
+from random import randint
+
+arquivos = pd.read_csv("potholes.csv", delimiter=";")
 
 diretorio = "../data/completo"
 
@@ -37,7 +39,8 @@ def redimencionar(imagem, arquivo):
     imagem_largura = cv2.resize(imagem, dim, interpolation = cv2.INTER_AREA)
     path = arquivo[0].split("/")
 
-    salvar(imagem_largura, f"redi_{path[3]}-{path[4]}")
+
+    salvar(imagem_largura, f"redi_{path[3]}")
     return imagem_largura
 
 def flip_image(imagem, arquivo, tipo_flip = 1):
@@ -54,8 +57,9 @@ def flip_image(imagem, arquivo, tipo_flip = 1):
     """
     imagem_com_flip = cv2.flip(imagem, tipo_flip)
     path = arquivo[0].split("/")
+    value = randint(0, 100000)
 
-    salvar(imagem_com_flip, f"flip_{tipo_flip}_{path[3]}-{path[4]}")
+    salvar(imagem_com_flip, f"flip_{tipo_flip}_{path[3]}_{value}")
     return imagem_com_flip
 
 try:
@@ -64,8 +68,12 @@ try:
         imagem = cv2.imread(arquivo[0])
         cv2.waitKey(0)
 
+        print(arquivo[0])
         # redimencionar
         redimencionar(imagem=imagem, arquivo=arquivo)
+
+        #Flip
+        flip_image(imagem=imagem, arquivo=arquivo, tipo_flip=-1)
 
         """
         Desafio ->  Adicione o método de flip
