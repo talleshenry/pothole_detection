@@ -1,0 +1,26 @@
+<annotation>
+	<folder>completo</folder>
+	<filename>redi_76.jpg</filename>
+	<path>/home/talles/Documents/Pothole_detector/pothole_detection/augmentation/data/completo/redi_76.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>416</width>
+		<height>416</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>pothole</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>102</xmin>
+			<ymin>62</ymin>
+			<xmax>370</xmax>
+			<ymax>279</ymax>
+		</bndbox>
+	</object>
+</annotation>
